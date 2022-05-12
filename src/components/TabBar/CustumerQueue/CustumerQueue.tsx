@@ -13,7 +13,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
 import CustumerQueueStyle from './CustumerQueue.styles';
-export default function CustumerQueue({ tabelData }: any) {
+import { ITableData, ICustomerQueue } from './CustumerQueue.types';
+
+export default function CustumerQueue({ tabelData }: ICustomerQueue) {
   return (
     <CustumerQueueStyle>
       <div className="buttonsView">
@@ -43,7 +45,7 @@ export default function CustumerQueue({ tabelData }: any) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {tabelData.map((el) => (
+            {tabelData.map((el: ITableData) => (
               <TableRow key={el.customerName} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                 <TableCell component="th" scope="row">
                   {el.customerName}

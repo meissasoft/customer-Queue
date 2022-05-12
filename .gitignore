@@ -31,3 +31,5 @@ package-lock.json
 # Jetbrains IDE's config
 /.idea
 .env
+
+out
