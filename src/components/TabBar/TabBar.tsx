@@ -1,10 +1,9 @@
 import * as React from 'react';
 
 import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import Box from '@mui/material/Box';
-import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
 
 import { ComunityLogo } from '@/assets/svg/comunity-logo';
 import { HistoryLogo } from '@/assets/svg/history-logo';
@@ -12,7 +11,7 @@ import { COLORS } from '@/constants/colors';
 
 import CallHistory from './CallHistory';
 import CustumerQueue from './CustumerQueue';
-import TabBarStyle from './TabBar.styles';
+import { TabBarStyle, StyledLine, StyledTab } from './TabBar.styles';
 
 export default function TabBar() {
   const [value, setValue] = React.useState('1');
@@ -26,7 +25,7 @@ export default function TabBar() {
       customerName: 'Abhilash Madhukumar',
       appleId: 8526705017_1,
       location: 'India',
-      ipStatus: 'safe | proxy/VPN not detected India',
+      ipStatus: 'Safe | proxy/VPN not detected India',
       waiting: '00:04',
     },
   ];
@@ -35,30 +34,38 @@ export default function TabBar() {
     <TabBarStyle>
       <Box sx={{ width: '100%', typography: 'body1' }}>
         <TabContext value={value}>
-          <Box sx={{ borderBottom: 1, borderColor: `${COLORS.BLUE_250}` }}>
-            <TabList onChange={handleChange} aria-label="lab API tabs example">
-              <Tab
-                style={{ fontWeight: 'bold' }}
+          <Box>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              TabIndicatorProps={{
+                sx: {
+                  background: `-webkit-linear-gradient(${COLORS.BLUE_250}, ${COLORS.BLUE_260});`,
+                },
+              }}
+            >
+              <StyledTab
                 label={
-                  <div>
+                  <div style={{ display: 'flex' }}>
                     {' '}
-                    <ComunityLogo /> &nbsp; Customer Queue{' '}
+                    <ComunityLogo isActive={value === '1'} /> &nbsp; Customer Queue{' '}
                   </div>
                 }
                 value="1"
+                isActive={value === '1'}
               />
-              <Tab
-                style={{ fontWeight: 'bold' }}
+              <StyledTab
                 label={
-                  <div>
-                    {' '}
-                    <HistoryLogo /> &nbsp; Call history{' '}
+                  <div style={{ display: 'flex' }}>
+                    <HistoryLogo isActive={value === '2'} /> &nbsp; Call history
                   </div>
                 }
                 value="2"
+                isActive={value === '2'}
               />
-            </TabList>
+            </Tabs>
           </Box>
+          <StyledLine />
           <TabPanel value="1">
             <CustumerQueue tabelData={tabelArray} />
           </TabPanel>

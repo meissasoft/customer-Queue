@@ -9,6 +9,7 @@ const HeaderStyled = styled.div`
   display : flex;
   justify-content : space-between;
   padding: 0px 20px;
+  height: 72px;
  
   .card-image {
     width: 100%;
@@ -79,13 +80,15 @@ const HeaderStyled = styled.div`
       line-height: 20px!important;
     }
   }
-
+  .toggleButton {
+    
+  }
 
   .card-id-text_2 {
     font-size: ${FONT_SIZES.SUB_HEADING_3};
     font-weight: ${FONT_WEIGHTS.REGULAR};
     color: gray;
-    line-height: 0px!important;
+    line-height: 0px !important;
     @media (max-width:768px){
       line-height: 20px!important;
     }

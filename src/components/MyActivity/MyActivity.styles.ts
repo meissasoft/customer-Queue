@@ -7,7 +7,8 @@ const Activity = styled.div`
   background: ${COLORS.WHITE_100};
   box-sizing: border-box;
   box-shadow: 0px 0px 10px 3px #e8e8e8;
-  padding: 20px 40px;
+  padding: 12px 20px;
+  height: 680px;
   margin: auto;
   margin-top: 40px;
   margin-bottom: 40px;
@@ -16,12 +17,19 @@ const Activity = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 7px;
+  }
+  .borderRadus {
     border-bottom: 2px solid ${COLORS.GREY_2};
   }
   .activityHeading {
-    color: ${COLORS.BLACK_100};
-    font-size: ${FONT_SIZES.SUB_HEADING_2};
-    font-weight: ${FONT_WEIGHTS.SEMIBOLD};
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    // color: ${COLORS.BLACK_100};
+    // font-size: ${FONT_SIZES.SUB_HEADING_2};
+    // font-weight: ${FONT_WEIGHTS.SEMIBOLD};
   }
 
   .activityHeading {
@@ -39,7 +47,10 @@ const Activity = styled.div`
     border: none;
     outline: none;
     width: 60px;
-    color: #3878be;
+    right: 0;
+    background: -webkit-linear-gradient(${COLORS.BLUE_250}, ${COLORS.BLUE_260});
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-weight: ${FONT_WEIGHTS.SEMIBOLD};
   }
   .circularBarMainView {
@@ -55,7 +66,7 @@ const Activity = styled.div`
     justify-content: space-between;
     align-items: center;
     border-top: 2px solid ${COLORS.GREY_2};
-    padding: 0px 10px;
+    padding: 10px 10px;
   }
   .singleItem_flex {
     display: flex;
@@ -70,9 +81,11 @@ const Activity = styled.div`
     font-weight: ${FONT_WEIGHTS.SEMIBOLD};
   }
   .singleItemDayHeading {
-    color: ${COLORS.BLUE_250};
-    font-size: ${FONT_SIZES.SUB_HEADING_2};
-    font-weight: ${FONT_WEIGHTS.SEMIBOLD};
+    background: -webkit-linear-gradient(${COLORS.BLUE_250}, ${COLORS.BLUE_260});
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: ${FONT_SIZES.NUMBER_HEADING};
+    font-weight: ${FONT_WEIGHTS.PREBOLD};
   }
   .dot {
     width: 12px;

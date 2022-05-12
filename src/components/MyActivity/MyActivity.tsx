@@ -15,18 +15,17 @@ const MyActivity: FC<HeaderTypes> = memo(({ approved, rejected, issue, totalCall
 
   return (
     <Activity>
-      <div className="activityHeader">
-        <div>
-          <h5 className="activityHeading">My Activity</h5>
-        </div>
-        <div>
-          <span className="activityDropdownHeader">Show</span>
-          <select name="activityFilter" id="activityFilter" className="activityDropdown">
-            <option value="today">Today</option>
-            <option value="yesterday">Yesterday</option>
-            <option value="week">1 Week Ago</option>
-            <option value="month">1 Month Ago</option>
-          </select>
+      <div className="borderRadus">
+        <div className="activityHeader">
+          <div>
+            <span className="activityHeading">My Activity</span>
+          </div>
+          <div>
+            <span className="activityDropdownHeader">Show</span>
+            <select name="activityFilter" id="activityFilter" className="activityDropdown">
+              <option value="today">Today</option>
+            </select>
+          </div>
         </div>
       </div>
       <div className="circularBarMainView">
@@ -35,7 +34,46 @@ const MyActivity: FC<HeaderTypes> = memo(({ approved, rejected, issue, totalCall
             {data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
             ))}
-            <Label value={`${totalCalls} Total Calls`} position="center" />
+            {/* <Label value={`${totalCalls}<br/>Total Calls`} position="center" /> */}
+            <Label
+              content={(props) => {
+                const {
+                  viewBox: { cx, cy },
+                } = props;
+                const positioningProps = {
+                  x: cx,
+                  y: cy,
+                  textAnchor: 'middle',
+                  verticalAnchor: 'middle',
+                };
+                const presentationProps = {
+                  fill: 'black',
+                  fontWeight: 1000,
+                  fontSize: 30,
+                };
+                const positioningProps1 = {
+                  x: cx,
+                  y: cy + 20,
+                  textAnchor: 'middle',
+                  verticalAnchor: 'middle',
+                };
+                const presentationProps1 = {
+                  fill: '#6E6E6F',
+                  fontWeight: 700,
+                  fontSize: 12,
+                };
+                return (
+                  <>
+                    <text {...positioningProps} {...presentationProps}>
+                      {totalCalls}
+                    </text>
+                    <text {...positioningProps1} {...presentationProps1}>
+                      Total Calls
+                    </text>
+                  </>
+                );
+              }}
+            />
           </Pie>
         </PieChart>
       </div>
@@ -45,19 +83,19 @@ const MyActivity: FC<HeaderTypes> = memo(({ approved, rejected, issue, totalCall
           <div className="singleItem_flex">
             <div className="dot dotgreen"></div> <span className="singleItemHeading">Approved</span>
           </div>
-          <h5 className="singleItemDayHeading singleItemDayGreen">{approved}</h5>
+          <span className="singleItemDayHeading singleItemDayGreen">{approved}</span>
         </div>
         <div className="singleItem">
           <div className="singleItem_flex">
             <div className="dot dotred"> </div> <span className="singleItemHeading">Rejected</span>
           </div>
-          <h5 className="singleItemDayHeading singleItemDayRed">{rejected}</h5>
+          <span className="singleItemDayHeading singleItemDayRed">{rejected}</span>
         </div>
         <div className="singleItem singleItemBorderBottom">
           <div className="singleItem_flex">
             <div className="dot dotyellow"> </div> <span className="singleItemHeading">Issue</span>
           </div>
-          <h5 className="singleItemDayHeading singleItemDayGreen">{issue}</h5>
+          <span className="singleItemDayHeading singleItemDayGreen">{issue}</span>
         </div>
       </div>
     </Activity>
