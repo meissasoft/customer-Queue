@@ -26,15 +26,18 @@ const Header: FC<HeaderTypes> = memo(({ name, image, fingerprint, active }) => {
                 <Switch
                   defaultChecked
                   size="small"
+                  style={{ marginTop: 4 }}
                   sx={{
                     [`& .MuiSwitch-thumb`]: {
                       backgroundColor: '#08C152',
-                      width: 13,
-                      height: 13,
+                      marginTop: 20,
+                      width: 10,
+                      height: 10,
                     },
                     [`& .MuiSwitch-track`]: {
-                      backgroundColor: 'red !important',
+                      backgroundColor: 'white !important',
                       width: 100,
+                      height: 12,
                     },
                   }}
                 />
