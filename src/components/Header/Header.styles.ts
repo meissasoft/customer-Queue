@@ -10,7 +10,10 @@ const HeaderStyled = styled.div`
   justify-content : space-between;
   padding: 0px 20px;
   height: 72px;
- 
+ @media (max-width:768px){
+  height: 145px;
+
+ }
   .card-image {
     width: 100%;
     height: 100%;
@@ -53,8 +56,6 @@ const HeaderStyled = styled.div`
     object-fit: cover;
   }
   .card-title-heading{
-    border-left: 2px solid gray;
-    padding-left:10px;
     margin-left: 20px;
   }
 
@@ -71,10 +72,11 @@ const HeaderStyled = styled.div`
   }
 
   .card-id-text {
+    height:30px;
     font-size: ${FONT_SIZES.SUB_HEADING_2};
     font-weight: ${FONT_WEIGHTS.REGULAR};
     color: ${COLORS.WHITE_100};
-    margin-bottom:0px;
+    margin-bottom:-25px;
     line-height: 0px!important;
     @media (max-width:768px){
       line-height: 20px!important;
@@ -89,9 +91,15 @@ const HeaderStyled = styled.div`
     font-weight: ${FONT_WEIGHTS.REGULAR};
     color: gray;
     line-height: 0px !important;
+    margin-top: 12px;
+    margin-bottom: 0rem;
+    width: 100px;
+
+;
     @media (max-width:768px){
       line-height: 20px!important;
     }
+
   }
   .arrowIcon {
     color: white;
@@ -102,6 +110,12 @@ const HeaderStyled = styled.div`
     margin-top:0px;
   }
  
+  .avatar{
+    height:40px;
+    width:40px;
+    border-radius: 50px;
+    object-fit: cover;
+  }
 `;
 
 export default HeaderStyled;
