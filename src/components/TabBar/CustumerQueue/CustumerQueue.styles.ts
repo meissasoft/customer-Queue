@@ -28,6 +28,10 @@ const CustumerQueueStyle = styled.div`
     align-items: center;
     text-align: center;
   }
+  .thead {
+    height: 35px;
+    padding: 30px;
+  }
   .buttonLogo {
     font-size: 18px;
     margin-right: 4px;
@@ -46,7 +50,6 @@ const CustumerQueueStyle = styled.div`
   }
   .initiateButton {
     padding: 10px 40px;
-    outline: none;
     background-color: transparent;
     border-radius: 4px;
     font-size: 18px;
@@ -58,6 +61,9 @@ const CustumerQueueStyle = styled.div`
     border: none;
     margin: 50px auto;
     text-align: center;
+    outline: none !important;
+    outline-offset: none !important;
+    box-shadow: none !important;
   }
   .displayIp {
     display: flex;
