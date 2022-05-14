@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Header from '@/components/Header';
 
 import Dashboard from './Dashboard';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function LandingPage() {
   return (

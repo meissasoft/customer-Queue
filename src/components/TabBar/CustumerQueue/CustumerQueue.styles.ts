@@ -13,13 +13,13 @@ const CustumerQueueStyle = styled.div`
   }
   .button {
     padding: 5px 20px;
-    margin-left: 10px;
+    margin-right: 10px;
     background: -moz-linear-gradient(45deg, ${COLORS.BLUE_250}, ${COLORS.BLUE_260});
     background: -webkit-linear-gradient(45deg, ${COLORS.BLUE_250}, ${COLORS.BLUE_260});
     -moz-background-origin: border;
     background-origin: border-box;
     border: 2px solid transparent;
-    border-radius: 8px;
+    border-radius: 5px;
     box-shadow: inset -999px 0 0 #fff;
     font-size: 15px;
     color: ${COLORS.BLUE_250};
@@ -27,6 +27,10 @@ const CustumerQueueStyle = styled.div`
     display: flex;
     align-items: center;
     text-align: center;
+  }
+  .thead {
+    height: 35px;
+    padding: 30px;
   }
   .buttonLogo {
     font-size: 18px;
@@ -46,7 +50,6 @@ const CustumerQueueStyle = styled.div`
   }
   .initiateButton {
     padding: 10px 40px;
-    outline: none;
     background-color: transparent;
     border-radius: 4px;
     font-size: 18px;
@@ -58,6 +61,9 @@ const CustumerQueueStyle = styled.div`
     border: none;
     margin: 50px auto;
     text-align: center;
+    outline: none !important;
+    outline-offset: none !important;
+    box-shadow: none !important;
   }
   .displayIp {
     display: flex;
@@ -73,6 +79,10 @@ const CustumerQueueStyle = styled.div`
   .tableBody {
     font-size: 13px;
     text-align: left;
+  }
+  .tbody {
+    border-top: none !important;
+    border: white;
   }
 `;
 
