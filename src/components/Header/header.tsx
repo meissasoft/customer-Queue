@@ -1,53 +1,39 @@
 import React, { FC, memo } from 'react';
 
-import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
-import { Avatar, Grid, Switch } from '@mui/material';
+import { FingerPrint } from '@/assets/svg/fingerPrint';
+import { KeyboardArrowDownOutlinedIcon } from '@/assets/svg/KeyboardArrowDownOutlinedIcon';
 
 import HeaderStyled from './Header.styles';
 import { HeaderTypes } from './header.types';
 
-const Header: FC<HeaderTypes> = memo(({ name, image, fingerprint, active }) => {
+const Header: FC<HeaderTypes> = memo(({ name, image, active }) => {
   return (
     <HeaderStyled>
       <div className="card-title-text">
-        <img src={fingerprint} className="fingerPrint" />
+        <FingerPrint />
         <h3 className="card-title-heading">Good Evening {name?.split(' ')[0]}!</h3>
       </div>
       <div className="card-image-container">
-        <Grid container spacing={2}>
-          <Grid item md={2}>
-            <Avatar alt="image" src={image} className="profileImage" />
-          </Grid>
-          <Grid item md={8}>
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div className="row ">
+          <div className="col-md-2">
+            <img src={image} className="avatar" />
+          </div>
+          <div className="col-md-8">
+            <div style={{ display: 'flex', flexDirection: 'column', paddingTop: '8px' }}>
               <p className="card-id-text">{name}</p>
-              <div style={{ display: 'flex', flexDirection: 'row', paddingTop: '8px' }}>
+              <div
+                style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', paddingTop: '8px' }}
+              >
                 <p className="card-id-text_2">{active}</p>
-                <Switch
-                  defaultChecked
-                  size="small"
-                  style={{ marginTop: 4 }}
-                  sx={{
-                    [`& .MuiSwitch-thumb`]: {
-                      backgroundColor: '#08C152',
-                      marginTop: 20,
-                      width: 10,
-                      height: 10,
-                    },
-                    [`& .MuiSwitch-track`]: {
-                      backgroundColor: 'white !important',
-                      width: 100,
-                      height: 12,
-                    },
-                  }}
-                />
+
+                <div className="form-check form-switch mx-3 ">
+                  <input className="form-check-input " type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+                </div>
               </div>
             </div>
-          </Grid>
-          <Grid item md={1} display="flex" alignItems="center" justifyContent="center">
-            <KeyboardArrowDownOutlinedIcon className="arrowIcon" />
-          </Grid>
-        </Grid>
+          </div>
+        </div>
+        <KeyboardArrowDownOutlinedIcon />
 
         {/* <div className="card-image-innercontainer">
           <p className="card-id-text">{name}</p>
