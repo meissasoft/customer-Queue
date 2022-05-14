@@ -1,12 +1,11 @@
 import * as React from 'react';
 
-import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
-import AddIcCallOutlinedIcon from '@mui/icons-material/AddIcCallOutlined';
-import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
-import VideocamOutlinedIcon from '@mui/icons-material/VideocamOutlined';
-import Table from '@mui/material/Table';
-import { tableCellClasses } from '@mui/material/TableCell';
-import { Button } from 'react-bootstrap';
+import { Button, Table } from 'react-bootstrap';
+
+import { AddIcCallOutlinedIcon } from '@/assets/svg/call-icon';
+import { PersonAddAltOutlinedIcon } from '@/assets/svg/person-icon';
+import { AccessTimeOutlinedIcon } from '@/assets/svg/time-Icon';
+import { VideocamOutlinedIcon } from '@/assets/svg/video-icon';
 
 import CustumerQueueStyle from './CustumerQueue.styles';
 import { ITableData, ICustomerQueue } from './CustumerQueue.types';
@@ -16,34 +15,24 @@ export default function CustumerQueue({ tabelData }: ICustomerQueue) {
   const handleClick = (val: string) => {
     setValue(val);
   };
-
   return (
     <CustumerQueueStyle>
       <div className="buttonsView">
         <Button className={`button ${value === '0' && 'active'}`} onClick={() => handleClick('0')}>
-          <VideocamOutlinedIcon className="buttonLogo" />
+          <VideocamOutlinedIcon isActive={value === '0'} className="buttonLogo" />
           Live (1)
         </Button>
         <Button className={`button ${value === '1' && 'active'}`} onClick={() => handleClick('1')}>
-          <AccessTimeOutlinedIcon className="buttonLogo" />
+          <AccessTimeOutlinedIcon isActive={value === '1'} className="buttonLogo" />
           Scheduled (0)
         </Button>
         <Button className={`button ${value === '2' && 'active'}`} onClick={() => handleClick('2')}>
-          <PersonAddAltOutlinedIcon className="buttonLogo" />
+          <PersonAddAltOutlinedIcon isActive={value === '2'} className="buttonLogo" />
           Assigned (0)
         </Button>
       </div>
 
-      <Table
-        sx={{
-          minWidth: 650,
-          [`& .${tableCellClasses.root}`]: {
-            borderBottom: 'none',
-          },
-        }}
-        aria-label="simple table"
-        className="tabelMain"
-      >
+      <Table className="tabelMain">
         <thead style={{ border: '1px solid #DADADA' }}>
           <tr className="thead">
             <td className="tableHead">Customer name</td>
@@ -53,7 +42,7 @@ export default function CustumerQueue({ tabelData }: ICustomerQueue) {
             <td className="tableHead">Waiting Since</td>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="tbody">
           {tabelData.map((el: ITableData) => (
             <tr key={el.customerName}>
               <td className="tableBody">{el.customerName}</td>

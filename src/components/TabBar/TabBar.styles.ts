@@ -8,11 +8,27 @@ export const TabBarStyle = styled.div`
   background: ${COLORS.WHITE_100};
   box-sizing: border-box;
   box-shadow: 0px 0px 10px 3px #e8e8e8;
-  padding: 0px 10px;
+  padding: 5px 25px;
   margin: auto;
   margin-top: 40px;
   margin-right: 20px;
   height: 680px;
+  .nav-tabs .nav-link.active {
+    border-bottom: 2px solid #38568f;
+    border-top: 0px solid white;
+    border-left: 0px solid white;
+    border-right: 0px solid white;
+    color: #38a1f7;
+  }
+  .nav-tabs .nav-link {
+    margin-bottom: -1px;
+    background: 0 0;
+    border: 0px solid transparent;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    font-weight: 600;
+    color: #6e6e6f;
+  }
 `;
 
 export const StyledLine = styled.hr`

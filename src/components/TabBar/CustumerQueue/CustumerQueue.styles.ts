@@ -13,13 +13,13 @@ const CustumerQueueStyle = styled.div`
   }
   .button {
     padding: 5px 20px;
-    margin-left: 10px;
+    margin-right: 10px;
     background: -moz-linear-gradient(45deg, ${COLORS.BLUE_250}, ${COLORS.BLUE_260});
     background: -webkit-linear-gradient(45deg, ${COLORS.BLUE_250}, ${COLORS.BLUE_260});
     -moz-background-origin: border;
     background-origin: border-box;
     border: 2px solid transparent;
-    border-radius: 8px;
+    border-radius: 5px;
     box-shadow: inset -999px 0 0 #fff;
     font-size: 15px;
     color: ${COLORS.BLUE_250};
@@ -79,6 +79,10 @@ const CustumerQueueStyle = styled.div`
   .tableBody {
     font-size: 13px;
     text-align: left;
+  }
+  .tbody {
+    border-top: none !important;
+    border: white;
   }
 `;
 
